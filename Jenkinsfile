@@ -30,6 +30,12 @@ pipeline {
             steps {
                 sh './mvnw package'
             }
+
+            post {
+            success {
+                junit '**/target/surefire-reports/*.xml'
+                archiveArtifacts  '**/target/*.jar'
+            }
         }
     }
 }
