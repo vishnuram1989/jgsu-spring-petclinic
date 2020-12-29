@@ -44,9 +44,12 @@ pipeline {
                 branch 'main'  
             }
             steps {
-                sh './jenkins/scripts/deploy-for-production.sh'
+                input message: 'Proceed to deploy this site on Production? (Click "Proceed" to continue)'
+
+                sh 'echo "Deploying to production" '
+                //sh './jenkins/scripts/deploy-for-production.sh'
                 input message: 'Finished using the web site? (Click "Proceed" to continue)'
-                sh './jenkins/scripts/kill.sh'
+                sh 'echo "Deploying to production completed" '
             }
         }
     }
