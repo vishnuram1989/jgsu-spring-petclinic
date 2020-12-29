@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Clone Project') {
             steps {
-                git branch: 'master', url: 'https://github.com/vishnuram1989/jgsu-spring-petclinic.git'
+                git branch: 'master', credentials-id: 'gitcredentials', url: 'https://github.com/vishnuram1989/jgsu-spring-petclinic.git'
             
             }
             
