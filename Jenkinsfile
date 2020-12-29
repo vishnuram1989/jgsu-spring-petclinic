@@ -16,19 +16,19 @@ pipeline {
         
         stage('Clean') {
             steps {
-                sh 'cd jgsu-spring-petclinic && ./mvnw clean'
+                sh './mvnw clean'
             }
         }
         
         stage('Compile ') {
             steps {
-                sh 'cd jgsu-spring-petclinic && ./mvnw compile '
+                sh './mvnw compile '
             }
         }
         
         stage('Package ') {
             steps {
-                sh 'cd jgsu-spring-petclinic && ./mvnw package'
+                sh './mvnw package'
             }
         }
     }
