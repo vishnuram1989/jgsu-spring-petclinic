@@ -53,6 +53,7 @@ pipeline {
                 branch 'main'  
             }
             steps {
+                
                 input message: 'Proceed to deploy this site on Production? (Click "Proceed" to continue)'
 
                 sh 'echo "Deploying to production" '
