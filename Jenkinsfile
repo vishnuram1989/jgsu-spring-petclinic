@@ -2,7 +2,9 @@ pipeline {
     agent any
 
     triggers {
-        pollSCM('* * * * *')
+        //pollSCM('* * * * *')
+        githubPush()
+        
     }
 
     stages {
