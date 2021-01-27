@@ -2,27 +2,38 @@ pipeline {
     agent any
 
     triggers {
-        pollSCM('* * * * *')
+        //pollSCM('* * * * *')
+        githubPush()
+        
     }
 
     stages {
-        stage('Clone Project') {
-            steps {
-                git branch: 'main', credentialsId: 'gitcredentials', url: 'https://github.com/vishnuram1989/jgsu-spring-petclinic.git'
+        //stage('Clone Project') {
+        //    steps {
+        //        git branch: 'main', credentialsId: 'gitcredentials', url: 'https://github.com/vishnuram1989/jgsu-spring-petclinic.git'
+        //        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        //  sh "exit 1"
+       // }
             
-            }
+        //    }
             
-        }
+        //}
         
         stage('Clean') {
             steps {
                 sh './mvnw clean'
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+          sh "exit 1"
+        }
             }
         }
         
         stage('Compile ') {
             steps {
                 sh './mvnw compile '
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+          sh "exit 1"
+        }
             }
         }
         
