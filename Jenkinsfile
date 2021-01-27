@@ -8,16 +8,16 @@ pipeline {
     }
 
     stages {
-        stage('Clone Project') {
-            steps {
-                git branch: 'main', credentialsId: 'gitcredentials', url: 'https://github.com/vishnuram1989/jgsu-spring-petclinic.git'
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-          sh "exit 1"
-        }
+        //stage('Clone Project') {
+        //    steps {
+        //        git branch: 'main', credentialsId: 'gitcredentials', url: 'https://github.com/vishnuram1989/jgsu-spring-petclinic.git'
+        //        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        //  sh "exit 1"
+       // }
             
-            }
+        //    }
             
-        }
+        //}
         
         stage('Clean') {
             steps {
